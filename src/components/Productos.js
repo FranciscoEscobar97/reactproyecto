@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
   
 }));
 
-export default function Productos({prod:{id,referencia,precio,imageUrl}}) {
+export default function Productos({prod:{id,referencia,nombre,precio,imageUrl}}) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
@@ -65,17 +65,17 @@ export default function Productos({prod:{id,referencia,precio,imageUrl}}) {
               {accounting.formatMoney(precio,"$")}
           </Typography>
         }
-        title="Cerveza Club Colombia Dorada "
+        title={nombre}
         subheader="En stock"
       />
       <CardMedia
         className={classes.media}
-        image="https://raw.githubusercontent.com/FranciscoEscobar97/imagenes/master/cerveza-club-colombia-dorada-lata-330ml%2C-6-pack.-4.7%25-abv-1.webp"
+        image={imageUrl}
         title="ClubColombiaSix"
       />
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
-          Club Colombia en lata six-pack
+         Codigo SKU: {referencia}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>

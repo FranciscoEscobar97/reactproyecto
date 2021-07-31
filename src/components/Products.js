@@ -1,9 +1,9 @@
 import React,{useEffect,useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
+
 import Grid from '@material-ui/core/Grid';
 import Productos from './Productos'
-import products from '../product-data'
+import productdata from '../productdata'
 import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
   
 }));
 
-export default function Products({productos}) {
+export default function Products() {
   /* const [productos,setProductos]=useState([]);
     
   useEffect(()=>{
@@ -27,18 +27,14 @@ export default function Products({productos}) {
       <Grid container spacing={3}>
         
             
-            {productos.map((prod)=>{
-              return(
-                  
-                  
-                <Grid item xs={12} sm={6} md={4} lg={3}>
-                <Productos key={prod.id}   product={prod}/>
-                </Grid>
-                     
-                  
-                  
-              );
-          })}
+            {
+            productdata.map(prod=>(
+              <Grid item xs={12} sm={6} md={4} lg={3}>
+                <Productos key={prod.id}   prod={prod}/>
+              </Grid>
+            )
+             
+          )}
 
       
       </Grid>
